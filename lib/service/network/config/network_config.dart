@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: non_constant_identifier_names, file_names
 
 import 'dart:async';
 import 'dart:developer';

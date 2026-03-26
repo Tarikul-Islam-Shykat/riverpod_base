@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../const/app_colors.dart';
@@ -33,7 +32,7 @@ class GlobalAppButton extends StatelessWidget {
   Color get _resolvedBackground => backgroundColor ?? AppColors.bgColor;
 
   Color get _resolvedDisabledColor =>
-      disabledColor ?? AppColors.primaryColor.withOpacity(0.4);
+      disabledColor ?? AppColors.primaryColor.withValues(alpha: 0.4);
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +47,8 @@ class GlobalAppButton extends StatelessWidget {
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(borderRadius.r),
-          splashColor: Colors.white.withOpacity(0.3), // ripple color
-          highlightColor: Colors.white.withOpacity(0.1),
+          splashColor: Colors.white.withValues(alpha: 0.3), // ripple color
+          highlightColor: Colors.white.withValues(alpha: 0.1),
           onTap: active ? onTap : null,
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 200),
@@ -58,18 +57,18 @@ class GlobalAppButton extends StatelessWidget {
             alignment: Alignment.center,
             child: isLoading
                 ? SizedBox(
-              width: 22.w,
-              height: 22.w,
-              child: CircularProgressIndicator(
-                strokeWidth: 2.5,
-                valueColor: AlwaysStoppedAnimation<Color>(textColor),
-              ),
-            )
+                    width: 22.w,
+                    height: 22.w,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 2.5,
+                      valueColor: AlwaysStoppedAnimation<Color>(textColor),
+                    ),
+                  )
                 : normalText(
-              text: text,
-              color: textColor,
-              fontWeight: FontWeight.w600,
-            ),
+                    text: text,
+                    color: textColor,
+                    fontWeight: FontWeight.w600,
+                  ),
           ),
         ),
       ),
